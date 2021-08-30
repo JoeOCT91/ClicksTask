@@ -16,22 +16,17 @@ class ArticleVC: UIViewController {
     //Outlets
     @IBOutlet var articleView: ArticleView!
     
-    //ViewModel
+    //ViewModel property
     private var viewModel: ArticleVMProtocol!
-
+    
+    //Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         articleView.setupView()
         viewModel.getViewData()
-        setupNavigationBarProperties()
     }
     
-    private func setupNavigationBarProperties() {
-        self.navigationController?.setNavigationBarBackground()
-        //navigationController?.setupSettingButton()
-    }
-    
-    
+//MARK:- Public Methods
     class func create(article: Article) -> ArticleVC {
         let articleVC: ArticleVC = UIViewController.create(storyboardName: Storyboards.main, identifier: ViewControllers.articleVC)
         let viewModel = ArticleVM(view: articleVC, article: article)
@@ -39,6 +34,7 @@ class ArticleVC: UIViewController {
         return articleVC
     }
 }
+
 extension ArticleVC: ArticleVCProtocol {
     internal func setViewData(article: Article) {
         articleView.setData(with: article)

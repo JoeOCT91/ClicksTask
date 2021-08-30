@@ -36,6 +36,7 @@ class NewsVC: DataLoadingVC {
         configureViewController()
         self.viewModel.getNews()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -48,10 +49,6 @@ class NewsVC: DataLoadingVC {
         //        let addButton = UIBarButtonItem(
         //        (barButtonSystemItem: ", target: self, action: #selector(addButtonTapped))
         //        navigationItem.rightBarButtonItem = addButton
-    }
-    
-    @objc func addButtonTapped() {
-        print("Tapped")
     }
     
     // MARK:- Public Methods
