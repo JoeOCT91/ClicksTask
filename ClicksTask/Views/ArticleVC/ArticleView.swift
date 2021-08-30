@@ -10,12 +10,12 @@ import UIKit
 class ArticleView: UIView {
     
     //Views
-    let articleImage = ArticleImageView(frame: .zero)
-    let articleTopBorder = UIView(frame: .zero)
-    let articleContainer = UIView(frame: .zero)
-    let articleTitle = ArticleLable (fontSize: 11, font: UIFont(font: FontFamily.Cairo.bold, size: 11))
-    let articleSource = ArticleLable (fontSize: 11, font: UIFont(font: FontFamily.Cairo.bold, size: 11))
-    let articleContent = ArticleLable (fontSize: 11, font: UIFont(font: FontFamily.Cairo.regular, size: 15))
+    private let articleImage = ArticleImageView(frame: .zero)
+    private let articleTopBorder = UIView(frame: .zero)
+    private let articleContainer = UIView(frame: .zero)
+    private let articleTitle = ArticleLable (fontSize: 11, font: UIFont(font: FontFamily.Cairo.bold, size: 11))
+    private let articleSource = ArticleLable (fontSize: 11, font: UIFont(font: FontFamily.Cairo.bold, size: 11))
+    private let articleContent = ArticleLable (fontSize: 11, font: UIFont(font: FontFamily.Cairo.regular, size: 15))
     
     //Order is needed in this function
     func setupView() {

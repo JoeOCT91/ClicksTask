@@ -27,6 +27,9 @@ internal struct ColorName {
   /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#ffffff"></span>
   /// Alpha: 100% <br/> (0xffffffff)
   internal static let cellBackGround = ColorName(rgbaValue: 0xffffffff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#eaeaea"></span>
+  /// Alpha: 100% <br/> (0xeaeaeaff)
+  internal static let navbarbg = ColorName(rgbaValue: 0xeaeaeaff)
   /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#095eab"></span>
   /// Alpha: 100% <br/> (0x095eabff)
   internal static let naveyBlue = ColorName(rgbaValue: 0x095eabff)

@@ -28,10 +28,12 @@ class NewsVC: DataLoadingVC {
     //ViewModel
     private var viewModel: NewsVMProtocol!
     
+    //ViewController Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.newsView.setupView(vcRefrence: self)
+        self.newsView.setupView(vcReference: self)
         configureDataSource()
+        configureViewController()
         self.viewModel.getNews()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +41,18 @@ class NewsVC: DataLoadingVC {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    func configureViewController() {
+        //        view.backgroundColor = .systemBackground
+        //        //navigationController?.navigationBar.prefersLargeTitles = true
+        //
+        //        let addButton = UIBarButtonItem(
+        //        (barButtonSystemItem: ", target: self, action: #selector(addButtonTapped))
+        //        navigationItem.rightBarButtonItem = addButton
+    }
     
+    @objc func addButtonTapped() {
+        print("Tapped")
+    }
     
     // MARK:- Public Methods
     
@@ -72,22 +85,61 @@ extension NewsVC: UICollectionViewDelegate {
             guard let self = self else { return UICollectionViewCell() }
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticleCell.reuseID, for: indexPath) as? ArticleCell
             cell?.set(article: (self.viewModel.getCellData(indexPath: indexPath)))
+            cell?.delgate = self
             return cell
         })
     }
 }
 
 extension NewsVC: UISearchResultsUpdating {
+    
     func updateSearchResults(for searchController: UISearchController) {
         viewModel.articlesFiltration(keyWords: searchController.searchBar.text)
     }
 }
 
 extension NewsVC: NewsVCProtocol {
+    
+    //use to populate collectionView with its cells depend on data sent from ViewModel
     func updateData(on articles: [Article]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Article>()
         snapshot.appendSections([.main])
         snapshot.appendItems(articles)
         DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true) }
+    }
+}
+extension NewsVC: ArticleCellDelgate {
+    
+    
+     func share(sender:UIView){
+
+        
+     }
+    func shareArticleLink(url: String) {
+        // Setting description
+        let textToShare = "Share article Link.."
+        // Setting url
+        if let articleUrl = URL(string: url) {
+            
+            let objectsToShare = [textToShare, articleUrl] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+
+            //Excluded Activities
+            activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop,
+                                                UIActivity.ActivityType.addToReadingList,
+                                                UIActivity.ActivityType.postToFacebook,
+                                                UIActivity.ActivityType.postToWeibo,
+                                                UIActivity.ActivityType.print,
+                                                UIActivity.ActivityType.assignToContact,
+                                                UIActivity.ActivityType.saveToCameraRoll,
+                                                UIActivity.ActivityType.addToReadingList,
+                                                UIActivity.ActivityType.postToFlickr,
+                                                UIActivity.ActivityType.postToVimeo,
+                                                UIActivity.ActivityType.postToTencentWeibo]
+            
+            activityVC.isModalInPresentation = true
+            self.present(activityVC, animated: true, completion: nil)
+        }
+    
     }
 }

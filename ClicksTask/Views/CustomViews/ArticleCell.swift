@@ -7,15 +7,24 @@
 
 import UIKit
 
+@objc protocol ArticleCellDelgate: class {
+    func shareArticleLink(url: String)
+}
+
 class ArticleCell: UICollectionViewCell {
+    
+    //Cell Delgate property
+    weak var delgate: ArticleCellDelgate?
     
     static let reuseID = "ArticalCell"
     
     private let container = UIView(frame: .zero)
     private let articleImageView = ArticleImageView(frame: .zero)
-    private let articleSourceLable = ArticleLable(fontSize: 10, font: UIFont(font: FontFamily.Cairo.regular, size: 10))
+    private let articleSourceLabel = ArticleLable(fontSize: 10, font: UIFont(font: FontFamily.Cairo.regular, size: 10))
     private let articleTitleLable = ArticleLable(fontSize: 12, font: UIFont(font: FontFamily.Cairo.bold, size: 12))
+    private let shareButton = UIButton(frame: .zero)
     
+    private var articleUrl = String()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,21 +36,24 @@ class ArticleCell: UICollectionViewCell {
     }
     
     func set(article: Article) {
-        articleSourceLable.text = article.source?.name
+        articleSourceLabel.text = article.source?.name
         articleTitleLable.text = article.title
         articleImageView.downloadImage(fromURL: article.urlToImage)
+        articleUrl = article.url
     }
     
     private func configureCell(){
         contentView.addSubview(container)
         container.addSubview(articleImageView)
-        container.addSubview(articleSourceLable)
+        container.addSubview(articleSourceLabel)
         container.addSubview(articleTitleLable)
+        container.addSubview(shareButton)
         
         configureContainer()
         configureArticaleImageView()
         configureSourceLable()
         configureArticleTitleLable()
+        configureShareButton()
     }
     
     // Configuration for the container of all cell views
@@ -78,13 +90,13 @@ class ArticleCell: UICollectionViewCell {
     
     // Configuration for Artical source View
     private func configureSourceLable() {
-        articleSourceLable.numberOfLines = 1
-        articleSourceLable.textColor = ColorName.sourceMainColor.color
+        articleSourceLabel.numberOfLines = 1
+        articleSourceLabel.textColor = ColorName.sourceMainColor.color
         NSLayoutConstraint.activate([
-            articleSourceLable.topAnchor.constraint(equalTo: articleImageView.bottomAnchor),
-            articleSourceLable.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 24),
-            articleSourceLable.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -24),
-            articleSourceLable.heightAnchor.constraint(equalToConstant: 30)
+            articleSourceLabel.topAnchor.constraint(equalTo: articleImageView.bottomAnchor, constant: 12),
+            articleSourceLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 24),
+            articleSourceLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -24),
+            articleSourceLabel.heightAnchor.constraint(equalToConstant: 22)
         ])
     }
     
@@ -92,12 +104,31 @@ class ArticleCell: UICollectionViewCell {
         articleTitleLable.numberOfLines = 2
         articleTitleLable.textColor = ColorName.titleColor.color
         NSLayoutConstraint.activate([
-            articleTitleLable.topAnchor.constraint(equalTo: articleSourceLable.bottomAnchor),
+            articleTitleLable.topAnchor.constraint(equalTo: articleSourceLabel.bottomAnchor),
             articleTitleLable.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 24),
             articleTitleLable.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -24),
-            articleTitleLable.heightAnchor.constraint(equalToConstant: 65)
+            articleTitleLable.heightAnchor.constraint(equalToConstant: 45)
         ])
         articleTitleLable.adjustsFontSizeToFitWidth = true // shrink a bit to try to fit into the label
         articleTitleLable.lineBreakMode = .byWordWrapping
+    }
+    
+    private func configureShareButton() {
+        shareButton.addTarget(self, action: #selector(shareButtonPressed), for: .touchUpInside)
+        shareButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            shareButton.heightAnchor.constraint(equalToConstant: 25),
+            shareButton.widthAnchor.constraint(equalToConstant: 25),
+            shareButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 25),
+            shareButton.centerYAnchor.constraint(equalTo: articleSourceLabel.centerYAnchor)
+        ])
+        let homeSymbolConfiguration = UIImage.SymbolConfiguration(pointSize: 22, weight: .light)
+        let image = UIImage(systemName: "square.and.arrow.up", withConfiguration: homeSymbolConfiguration)
+        shareButton.setImage(image, for: .normal)
+        shareButton.tintColor = UIColor(hexString: "#BBBBBB")
+    }
+    
+    @objc private func shareButtonPressed(){
+        delgate?.shareArticleLink(url: articleUrl)
     }
 }

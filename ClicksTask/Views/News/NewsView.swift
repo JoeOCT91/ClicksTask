@@ -16,11 +16,11 @@ class NewsView: UIView {
     var searchController: UISearchController!
     
     //Order is nedded in this function
-    func setupView(vcRefrence: NewsVC) {
-        self.VCRefrence = vcRefrence
+    func setupView(vcReference: NewsVC) {
+        self.VCRefrence = vcReference
         configureCollectionView()
         configureSearchController()
-        collectionView.delegate = vcRefrence
+        collectionView.delegate = vcReference
     }
     
     private func configureCollectionView() {

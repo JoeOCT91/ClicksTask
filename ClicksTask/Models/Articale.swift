@@ -15,11 +15,13 @@ struct Article: Codable, Hashable {
     let title: String
     let articleDescription: String?
     let urlToImage: String?
+    let url: String
 
     enum CodingKeys: String, CodingKey {
         case source, title
         case articleDescription = "description"
         case urlToImage
+        case url
     }
 }
 extension Article {

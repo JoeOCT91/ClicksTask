@@ -35,7 +35,7 @@ class NewsVM: NewsVMProtocol {
         self.view = view
     }
     
-    // Caling API USing Alamofire to retrive News Articles
+    // Calling API USing Alamofire to retrive News Articles
     internal func getNews() {
         view?.showLoadingView()
         APIManager.shared().getNews(page: page) { [weak self] (result: Result<BaseResponse<Article>, Error>) in
@@ -75,7 +75,6 @@ class NewsVM: NewsVMProtocol {
     
     internal func getCellData(indexPath: IndexPath) -> Article {
         return articlesList[indexPath.row]
-        
     }
     
     internal func scrollObserve(cellCount: Int){

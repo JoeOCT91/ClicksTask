@@ -23,7 +23,14 @@ class ArticleVC: UIViewController {
         super.viewDidLoad()
         articleView.setupView()
         viewModel.getViewData()
+        setupNavigationBarProperties()
     }
+    
+    private func setupNavigationBarProperties() {
+        self.navigationController?.setNavigationBarBackground()
+        //navigationController?.setupSettingButton()
+    }
+    
     
     class func create(article: Article) -> ArticleVC {
         let articleVC: ArticleVC = UIViewController.create(storyboardName: Storyboards.main, identifier: ViewControllers.articleVC)
