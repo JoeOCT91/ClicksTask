@@ -1,0 +1,24 @@
+xcassets:
+  inputs: ClicksTask/Resources/Assets/Assets.xcassets
+  outputs:
+    templateName: swift5
+    output: ClicksTask/Resources/Assets/AssetsManager.swift
+    
+strings:
+  inputs: ClicksTask/Resources/Strings/Localizable.strings
+  outputs:
+    templateName: structured-swift5
+    output: ClicksTask/Resources/Strings/Strings.swift
+    
+colors:
+  inputs: ClicksTask/Resources/Colors/Colors.txt
+  outputs:
+    templateName: swift5
+    output: ClicksTask/Resources/Colors/ColorsManager.swift
+    
+fonts:
+  inputs:
+    - ClicksTask/Resources/Fonts
+  outputs:
+    templateName: swift5
+    output: ClicksTask/Resources/Fonts/FontsManager.swift

@@ -1,0 +1,6 @@
+BGGray : #EAEAEA
+naveyBlue : #095EAB
+black : #000000
+cellBackGround : #ffffff
+sourceMainColor : #BBBBBB
+titleColor : #3A3A3D
