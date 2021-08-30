@@ -9,7 +9,7 @@ import UIKit
 
 class EmptyStateView: UIView {
 
-    let messageLabel = ArticleLable(textAlignment: .center, fontSize: 28)
+    let messageLabel = ArticleLabel(textAlignment: .center, fontSize: 28)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

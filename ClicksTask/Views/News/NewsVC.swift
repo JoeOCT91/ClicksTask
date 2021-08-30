@@ -108,13 +108,8 @@ extension NewsVC: NewsVCProtocol {
         DispatchQueue.main.async { self.dataSource.apply(snapshot, animatingDifferences: true) }
     }
 }
-extension NewsVC: ArticleCellDelgate {
-    
-    
-     func share(sender:UIView){
+extension NewsVC: ArticleCellDelegate {
 
-        
-     }
     func shareArticleLink(url: String) {
         // Setting description
         let textToShare = "Share article Link.."

@@ -7,21 +7,21 @@
 
 import UIKit
 
-@objc protocol ArticleCellDelgate: class {
+@objc protocol ArticleCellDelegate: class {
     func shareArticleLink(url: String)
 }
 
 class ArticleCell: UICollectionViewCell {
     
-    //Cell Delgate property
-    weak var delgate: ArticleCellDelgate?
+    //Cell Delegate property
+    weak var delgate: ArticleCellDelegate?
     
-    static let reuseID = "ArticalCell"
+    static let reuseID = "ArticleCell"
     
     private let container = UIView(frame: .zero)
     private let articleImageView = ArticleImageView(frame: .zero)
-    private let articleSourceLabel = ArticleLable(fontSize: 10, font: UIFont(font: FontFamily.Cairo.regular, size: 10))
-    private let articleTitleLable = ArticleLable(fontSize: 12, font: UIFont(font: FontFamily.Cairo.bold, size: 12))
+    private let articleSourceLabel = ArticleLabel(fontSize: 10, font: UIFont(font: FontFamily.Cairo.regular, size: 10))
+    private let articleTitleLable = ArticleLabel(fontSize: 12, font: UIFont(font: FontFamily.Cairo.bold, size: 12))
     private let shareButton = UIButton(frame: .zero)
     
     private var articleUrl = String()

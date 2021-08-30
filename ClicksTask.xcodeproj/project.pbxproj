@@ -28,7 +28,7 @@
 		86327E9D26DC1C54005412D2 /* Colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = 86327E9C26DC1C54005412D2 /* Colors.txt */; };
 		86327EA526DC1C8F005412D2 /* ColorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86327EA426DC1C8F005412D2 /* ColorsManager.swift */; };
 		86327EA826DC259B005412D2 /* AssetsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86327EA726DC259B005412D2 /* AssetsManager.swift */; };
-		86327EAB26DC3321005412D2 /* ArticleLable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86327EAA26DC3321005412D2 /* ArticleLable.swift */; };
+		86327EAB26DC3321005412D2 /* ArticleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86327EAA26DC3321005412D2 /* ArticleLabel.swift */; };
 		86327EB426DC38A4005412D2 /* Cairo-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86327EB126DC387F005412D2 /* Cairo-Black.ttf */; };
 		86327EB626DC38A7005412D2 /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86327EAE26DC387F005412D2 /* Cairo-Bold.ttf */; };
 		86327EB826DC38AA005412D2 /* Cairo-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86327EB226DC387F005412D2 /* Cairo-ExtraLight.ttf */; };
@@ -73,7 +73,7 @@
 		86327E9C26DC1C54005412D2 /* Colors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Colors.txt; sourceTree = "<group>"; };
 		86327EA426DC1C8F005412D2 /* ColorsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsManager.swift; sourceTree = "<group>"; };
 		86327EA726DC259B005412D2 /* AssetsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetsManager.swift; sourceTree = "<group>"; };
-		86327EAA26DC3321005412D2 /* ArticleLable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleLable.swift; sourceTree = "<group>"; };
+		86327EAA26DC3321005412D2 /* ArticleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleLabel.swift; sourceTree = "<group>"; };
 		86327EAD26DC387E005412D2 /* Cairo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Cairo-Regular.ttf"; path = "ClicksTask/Resources/Fonts/Cairo-Regular.ttf"; sourceTree = SOURCE_ROOT; };
 		86327EAE26DC387F005412D2 /* Cairo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Cairo-Bold.ttf"; path = "ClicksTask/Resources/Fonts/Cairo-Bold.ttf"; sourceTree = SOURCE_ROOT; };
 		86327EAF26DC387F005412D2 /* Cairo-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Cairo-SemiBold.ttf"; path = "ClicksTask/Resources/Fonts/Cairo-SemiBold.ttf"; sourceTree = SOURCE_ROOT; };
@@ -307,7 +307,7 @@
 				862B833826D912350067D413 /* ArticleCell.swift */,
 				86329FEE26DAA6C40094E060 /* DataLoadingVC.swift */,
 				86327E6B26DBB9C5005412D2 /* ArticleImageView.swift */,
-				86327EAA26DC3321005412D2 /* ArticleLable.swift */,
+				86327EAA26DC3321005412D2 /* ArticleLabel.swift */,
 				86327EC726DC6534005412D2 /* EmptyStateView.swift */,
 			);
 			path = CustomViews;
@@ -507,7 +507,7 @@
 				86C4F29326D861210002250A /* BaseResponse.swift in Sources */,
 				86327EC226DC3980005412D2 /* FontsManager.swift in Sources */,
 				86327EC826DC6534005412D2 /* EmptyStateView.swift in Sources */,
-				86327EAB26DC3321005412D2 /* ArticleLable.swift in Sources */,
+				86327EAB26DC3321005412D2 /* ArticleLabel.swift in Sources */,
 				86329FE426DA76390094E060 /* Source.swift in Sources */,
 				86327EC526DC5A81005412D2 /* Strings.swift in Sources */,
 				8615825926D7B19000CB4CBC /* UIViewController+Storyboard.swift in Sources */,

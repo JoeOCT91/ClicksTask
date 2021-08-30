@@ -13,9 +13,9 @@ class ArticleView: UIView {
     private let articleImage = ArticleImageView(frame: .zero)
     private let articleTopBorder = UIView(frame: .zero)
     private let articleContainer = UIView(frame: .zero)
-    private let articleTitle = ArticleLable (fontSize: 11, font: UIFont(font: FontFamily.Cairo.bold, size: 11))
-    private let articleSource = ArticleLable (fontSize: 11, font: UIFont(font: FontFamily.Cairo.bold, size: 11))
-    private let articleContent = ArticleLable (fontSize: 11, font: UIFont(font: FontFamily.Cairo.regular, size: 15))
+    private let articleTitle = ArticleLabel (fontSize: 11, font: UIFont(font: FontFamily.Cairo.bold, size: 11))
+    private let articleSource = ArticleLabel (fontSize: 11, font: UIFont(font: FontFamily.Cairo.bold, size: 11))
+    private let articleContent = ArticleLabel (fontSize: 11, font: UIFont(font: FontFamily.Cairo.regular, size: 15))
     
     //Order is needed in this function
     func setupView() {

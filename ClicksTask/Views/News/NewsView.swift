@@ -9,7 +9,7 @@ import UIKit
 
 class NewsView: UIView {
     
-    private weak var VCRefrence: NewsVC!
+    private weak var VCReference: NewsVC!
 
     //Outlets
     var collectionView: UICollectionView!
@@ -17,7 +17,7 @@ class NewsView: UIView {
     
     //Order is nedded in this function
     func setupView(vcReference: NewsVC) {
-        self.VCRefrence = vcReference
+        self.VCReference = vcReference
         configureCollectionView()
         configureSearchController()
         collectionView.delegate = vcReference
@@ -31,6 +31,7 @@ class NewsView: UIView {
         collectionView.backgroundColor = ColorName.bgGray.color
         collectionView.register(ArticleCell.self, forCellWithReuseIdentifier: ArticleCell.reuseID)
     }
+    
     private func createFlowLayout() -> UICollectionViewFlowLayout {
         let width = self.bounds.width
         let padding: CGFloat = 25
@@ -45,9 +46,9 @@ class NewsView: UIView {
     
     func configureSearchController() {
         let searchController = UISearchController()
-        searchController.searchResultsUpdater = VCRefrence
+        searchController.searchResultsUpdater = VCReference
         searchController.searchBar.placeholder = L10n.searchForAnArticle
         searchController.obscuresBackgroundDuringPresentation = false // removes light overlay on results below
-        VCRefrence.navigationItem.searchController = searchController
+        VCReference.navigationItem.searchController = searchController
     }
 }

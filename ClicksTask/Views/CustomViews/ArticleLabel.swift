@@ -1,5 +1,5 @@
 //
-//  ArticleLable.swift
+//  ArticleLabel.swift
 //  ClicksTask
 //
 //  Created by Yousef Mohamed on 29/08/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArticleLable: UILabel {
+class ArticleLabel: UILabel {
     
 
     override init(frame: CGRect) {
