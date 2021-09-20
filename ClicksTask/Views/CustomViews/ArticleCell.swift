@@ -7,14 +7,14 @@
 
 import UIKit
 
-@objc protocol ArticleCellDelegate: class {
+@objc protocol ArticleCellDelegate: AnyObject {
     func shareArticleLink(url: String)
 }
 
 class ArticleCell: UICollectionViewCell {
     
     //Cell Delegate property
-    weak var delgate: ArticleCellDelegate?
+    weak var delegate: ArticleCellDelegate?
     
     static let reuseID = "ArticleCell"
     
@@ -129,6 +129,6 @@ class ArticleCell: UICollectionViewCell {
     }
     
     @objc private func shareButtonPressed(){
-        delgate?.shareArticleLink(url: articleUrl)
+        delegate?.shareArticleLink(url: articleUrl)
     }
 }

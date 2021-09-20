@@ -15,7 +15,7 @@ extension UINavigationController {
         //self.navigationBar.isTranslucent = true
         
         //self.navigationBar.setBackgroundImage(UIImage(), for:.default)
-        self.navigationBar.backgroundColor = .black
+        //self.navigationBar.backgroundColor = .black
     }
     internal func setupShareButton(){
         var settingIcon = UIImage(systemName: "square.and.arrow.up")

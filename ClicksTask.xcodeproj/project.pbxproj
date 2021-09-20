@@ -42,9 +42,16 @@
 		86329FE826DA83780094E060 /* UIColor+FromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86329FE726DA83780094E060 /* UIColor+FromHex.swift */; };
 		86329FEC26DA98C30094E060 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86329FEB26DA98C30094E060 /* UserDefaultsManager.swift */; };
 		86329FEF26DAA6C40094E060 /* DataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86329FEE26DAA6C40094E060 /* DataLoadingVC.swift */; };
+		8639D64326ED44DA005632AE /* ViewModelWithReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8639D64226ED44DA005632AE /* ViewModelWithReachability.swift */; };
 		863AB54626D85CDC00673CD3 /* NewsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863AB54526D85CDC00673CD3 /* NewsVM.swift */; };
+		8698BCAE26E63F0200791316 /* NetworkStateManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8698BCAD26E63F0200791316 /* NetworkStateManger.swift */; };
+		86A23DDC26E7AE8F0060BD68 /* ViewModelWithPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A23DDB26E7AE8F0060BD68 /* ViewModelWithPagination.swift */; };
+		86ADB87026E3FF0A007A770C /* NoConnectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ADB86F26E3FF0A007A770C /* NoConnectionVC.swift */; };
+		86ADB87326E3FF4C007A770C /* NoConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86ADB87226E3FF4C007A770C /* NoConnectionView.swift */; };
 		86C4F29326D861210002250A /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C4F29226D861210002250A /* BaseResponse.swift */; };
 		86C4F29626D862010002250A /* Articale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C4F29526D862010002250A /* Articale.swift */; };
+		86EF553026E25DED00D06F5E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EF552F26E25DED00D06F5E /* Reachability.swift */; };
+		86EF553426E25F7A00D06F5E /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EF553326E25F7A00D06F5E /* NotificationName.swift */; };
 		E272C58989C18B2959CCC5DD /* Pods_ClicksTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384E95496DAC946255B33436 /* Pods_ClicksTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,9 +94,16 @@
 		86329FE726DA83780094E060 /* UIColor+FromHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+FromHex.swift"; sourceTree = "<group>"; };
 		86329FEB26DA98C30094E060 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		86329FEE26DAA6C40094E060 /* DataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadingVC.swift; sourceTree = "<group>"; };
+		8639D64226ED44DA005632AE /* ViewModelWithReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelWithReachability.swift; sourceTree = "<group>"; };
 		863AB54526D85CDC00673CD3 /* NewsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVM.swift; sourceTree = "<group>"; };
+		8698BCAD26E63F0200791316 /* NetworkStateManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStateManger.swift; sourceTree = "<group>"; };
+		86A23DDB26E7AE8F0060BD68 /* ViewModelWithPagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelWithPagination.swift; sourceTree = "<group>"; };
+		86ADB86F26E3FF0A007A770C /* NoConnectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionVC.swift; sourceTree = "<group>"; };
+		86ADB87226E3FF4C007A770C /* NoConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionView.swift; sourceTree = "<group>"; };
 		86C4F29226D861210002250A /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		86C4F29526D862010002250A /* Articale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articale.swift; sourceTree = "<group>"; };
+		86EF552F26E25DED00D06F5E /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		86EF553326E25F7A00D06F5E /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		88E98FF46D5B54D6E0CCAD65 /* Pods-ClicksTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClicksTask.debug.xcconfig"; path = "Target Support Files/Pods-ClicksTask/Pods-ClicksTask.debug.xcconfig"; sourceTree = "<group>"; };
 		C2CF1EC0CB87278E543A85AB /* Pods-ClicksTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClicksTask.release.xcconfig"; path = "Target Support Files/Pods-ClicksTask/Pods-ClicksTask.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,6 +176,7 @@
 		8615824026D7A8AA00CB4CBC /* Mangers */ = {
 			isa = PBXGroup;
 			children = (
+				8698BCAC26E63AD800791316 /* ReachabilityManager */,
 				86329FEB26DA98C30094E060 /* UserDefaultsManager.swift */,
 			);
 			path = Mangers;
@@ -178,6 +193,7 @@
 		8615824226D7A90700CB4CBC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				86EF553226E25F7200D06F5E /* NotificationCenter+Name */,
 				86329FE626DA83590094E060 /* UIColor */,
 				86257B8B26D9D00200D18CC1 /* UINavigationController */,
 				8615825726D7B17200CB4CBC /* UIViewController */,
@@ -270,6 +286,7 @@
 		8615825126D7AC4F00CB4CBC /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				8639D64126ED44AA005632AE /* CustomViewModels */,
 				863AB54526D85CDC00673CD3 /* NewsVM.swift */,
 				86327E9326DC0F1C005412D2 /* ArticleVM.swift */,
 			);
@@ -309,6 +326,7 @@
 				86327E6B26DBB9C5005412D2 /* ArticleImageView.swift */,
 				86327EAA26DC3321005412D2 /* ArticleLabel.swift */,
 				86327EC726DC6534005412D2 /* EmptyStateView.swift */,
+				86ADB87126E3FF12007A770C /* NoConnection */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -328,6 +346,41 @@
 				86329FE726DA83780094E060 /* UIColor+FromHex.swift */,
 			);
 			path = UIColor;
+			sourceTree = "<group>";
+		};
+		8639D64126ED44AA005632AE /* CustomViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				86A23DDB26E7AE8F0060BD68 /* ViewModelWithPagination.swift */,
+				8639D64226ED44DA005632AE /* ViewModelWithReachability.swift */,
+			);
+			path = CustomViewModels;
+			sourceTree = "<group>";
+		};
+		8698BCAC26E63AD800791316 /* ReachabilityManager */ = {
+			isa = PBXGroup;
+			children = (
+				86EF552F26E25DED00D06F5E /* Reachability.swift */,
+				8698BCAD26E63F0200791316 /* NetworkStateManger.swift */,
+			);
+			path = ReachabilityManager;
+			sourceTree = "<group>";
+		};
+		86ADB87126E3FF12007A770C /* NoConnection */ = {
+			isa = PBXGroup;
+			children = (
+				86ADB86F26E3FF0A007A770C /* NoConnectionVC.swift */,
+				86ADB87226E3FF4C007A770C /* NoConnectionView.swift */,
+			);
+			path = NoConnection;
+			sourceTree = "<group>";
+		};
+		86EF553226E25F7200D06F5E /* NotificationCenter+Name */ = {
+			isa = PBXGroup;
+			children = (
+				86EF553326E25F7A00D06F5E /* NotificationName.swift */,
+			);
+			path = "NotificationCenter+Name";
 			sourceTree = "<group>";
 		};
 		A89105DF7412112F500DC8DA /* Frameworks */ = {
@@ -492,11 +545,16 @@
 				86C4F29626D862010002250A /* Articale.swift in Sources */,
 				86329FEF26DAA6C40094E060 /* DataLoadingVC.swift in Sources */,
 				86257B8D26D9D02800D18CC1 /* SetupFunctions+UINavigationController.swift in Sources */,
+				86ADB87326E3FF4C007A770C /* NoConnectionView.swift in Sources */,
 				8615826026D7B7AA00CB4CBC /* APIRouter.swift in Sources */,
 				8615826726D7EE9900CB4CBC /* NewsView.swift in Sources */,
+				86EF553026E25DED00D06F5E /* Reachability.swift in Sources */,
 				862B833926D912350067D413 /* ArticleCell.swift in Sources */,
 				86329FEC26DA98C30094E060 /* UserDefaultsManager.swift in Sources */,
 				8615825D26D7B1DF00CB4CBC /* APIManager.swift in Sources */,
+				86A23DDC26E7AE8F0060BD68 /* ViewModelWithPagination.swift in Sources */,
+				86EF553426E25F7A00D06F5E /* NotificationName.swift in Sources */,
+				8639D64326ED44DA005632AE /* ViewModelWithReachability.swift in Sources */,
 				86327EA526DC1C8F005412D2 /* ColorsManager.swift in Sources */,
 				86327E9426DC0F1C005412D2 /* ArticleVM.swift in Sources */,
 				86327E6C26DBB9C5005412D2 /* ArticleImageView.swift in Sources */,
@@ -508,6 +566,8 @@
 				86327EC226DC3980005412D2 /* FontsManager.swift in Sources */,
 				86327EC826DC6534005412D2 /* EmptyStateView.swift in Sources */,
 				86327EAB26DC3321005412D2 /* ArticleLabel.swift in Sources */,
+				8698BCAE26E63F0200791316 /* NetworkStateManger.swift in Sources */,
+				86ADB87026E3FF0A007A770C /* NoConnectionVC.swift in Sources */,
 				86329FE426DA76390094E060 /* Source.swift in Sources */,
 				86327EC526DC5A81005412D2 /* Strings.swift in Sources */,
 				8615825926D7B19000CB4CBC /* UIViewController+Storyboard.swift in Sources */,
@@ -662,6 +722,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5FFZ3X9GMU;
 				INFOPLIST_FILE = ClicksTask/Info.plist;
@@ -672,6 +733,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = www.delgation.com.ClicksTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -683,6 +745,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5FFZ3X9GMU;
 				INFOPLIST_FILE = ClicksTask/Info.plist;
@@ -693,6 +756,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = www.delgation.com.ClicksTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

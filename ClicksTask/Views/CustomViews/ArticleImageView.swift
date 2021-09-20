@@ -36,7 +36,7 @@ class ArticleImageView: UIImageView {
             return
         }
         guard let URL = URL(string: url) else { return }
-        sd_setImage(with: URL) { [weak self] (image, _, imageCache, _)  in
+        let hdhd = sd_setImage(with: URL) { [weak self] (image, _, imageCache, _)  in
             guard let self = self else { return }
             guard let image = image else { return }
             DispatchQueue.main.async { self.image = image }

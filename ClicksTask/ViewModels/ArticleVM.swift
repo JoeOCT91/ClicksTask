@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ArticleVMProtocol: class {
+protocol ArticleVMProtocol: AnyObject {
     func getViewData()
 }
 

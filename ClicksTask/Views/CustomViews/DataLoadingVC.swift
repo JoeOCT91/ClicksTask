@@ -9,7 +9,7 @@ import UIKit
 
 class DataLoadingVC: UIViewController {
     
-    var containerView: UIView!
+    private var containerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,4 +51,33 @@ class DataLoadingVC: UIViewController {
         emptyStateView.frame = view.bounds
         view.addSubview(emptyStateView)
     }
+    
+    func showNoConnectionView(){
+        var noConnectionView: UIView = NoConnectionView(frame: view.bounds)
+        containerView.addSubview(noConnectionView)
+        animate(view: &noConnectionView)
+    }
+    
+    private func hideNoConnectionView() {
+        
+    }
+    
+    private func animate(view: inout UIView) {
+        containerView.backgroundColor = .systemBackground
+        containerView.alpha = 0
+        
+        UIView.animate(withDuration: 0.25) { self.containerView.alpha = 0.8 }
+        
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        containerView.addSubview(activityIndicator)
+        
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            activityIndicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+        ])
+        activityIndicator.startAnimating()
+    }
 }
+

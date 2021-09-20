@@ -7,7 +7,15 @@
 
 import UIKit
 
-protocol NewsVCProtocol: class {
+protocol PaginationVCProtocol: VCWithReachabilityProtocol {
+    
+}
+
+protocol VCWithReachabilityProtocol: AnyObject {
+    
+}
+
+protocol NewsVCProtocol: PaginationVCProtocol {
     func updateData(on followers: [Article])
     func showLoadingView()
     func dismissLoadingView ()
@@ -16,11 +24,11 @@ protocol NewsVCProtocol: class {
 
 class NewsVC: DataLoadingVC {
     
-    enum Section {
+    private enum Section {
         case main
     }
     
-    var dataSource: UICollectionViewDiffableDataSource<Section, Article>!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Article>!
     
     //Outlets
     @IBOutlet var newsView: NewsView!
@@ -33,22 +41,22 @@ class NewsVC: DataLoadingVC {
         super.viewDidLoad()
         self.newsView.setupView(vcReference: self)
         configureDataSource()
-        configureViewController()
-        self.viewModel.getNews()
+        self.viewModel.getData()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        NotificationCenter.default.addObserver(self, selector: #selector(stateChanged), name: .flagsChanged, object: nil )
     }
     
-    func configureViewController() {
-        //        view.backgroundColor = .systemBackground
-        //        //navigationController?.navigationBar.prefersLargeTitles = true
-        //
-        //        let addButton = UIBarButtonItem(
-        //        (barButtonSystemItem: ", target: self, action: #selector(addButtonTapped))
-        //        navigationItem.rightBarButtonItem = addButton
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: .flagsChanged, object: nil)
+    }
+    
+    @objc private func stateChanged() {
+        viewModel.stateChanged()
     }
     
     // MARK:- Public Methods
@@ -59,7 +67,6 @@ class NewsVC: DataLoadingVC {
         newsVC.viewModel = viewModel
         return newsVC
     }
-    
 }
 
 extension NewsVC: UICollectionViewDelegate {
@@ -82,7 +89,7 @@ extension NewsVC: UICollectionViewDelegate {
             guard let self = self else { return UICollectionViewCell() }
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticleCell.reuseID, for: indexPath) as? ArticleCell
             cell?.set(article: (self.viewModel.getCellData(indexPath: indexPath)))
-            cell?.delgate = self
+            cell?.delegate = self
             return cell
         })
     }
@@ -132,6 +139,5 @@ extension NewsVC: ArticleCellDelegate {
             activityVC.isModalInPresentation = true
             self.present(activityVC, animated: true, completion: nil)
         }
-    
     }
 }

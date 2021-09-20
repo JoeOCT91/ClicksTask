@@ -11,7 +11,7 @@ class EmptyStateView: UIView {
 
     let messageLabel = ArticleLabel(textAlignment: .center, fontSize: 28)
     
-    override init(frame: CGRect) {
+    override init (frame: CGRect) {
         super.init(frame: frame)
         configure()
     }

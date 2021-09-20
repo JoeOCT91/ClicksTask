@@ -5,10 +5,9 @@
 //  Created by Yousef Mohamed on 27/08/2021.
 //
 
-import Foundation
+import UIKit
 
-protocol NewsVMProtocol: class {
-    func getNews()
+protocol NewsVMProtocol: ViewModelWithPaginationProtocol, PaginationChild {
     func articlesFiltration(keyWords: String?)
     func getDataListCount() -> Int
     func scrollObserve(cellCount: Int)
@@ -16,36 +15,29 @@ protocol NewsVMProtocol: class {
     func getClickedArticle(in index: Int) -> Article
 }
 
-class NewsVM: NewsVMProtocol {
+class NewsVM<T: NewsVCProtocol>: ViewModelWithPagination<T>, NewsVMProtocol {
     
-    //View Weak Refrence to update UI
-    private weak var view: NewsVCProtocol?
-    
-    //Pagination proprties
-    internal var page = 1
-    internal var hasMorePages = true
-    
-    //Data and filteration proprties
-    internal var articlesList = [Article]()
     internal var filteredArticles  = [Article]()
     internal var isSearching: Bool = false
     
     //Init
-    init(view: NewsVCProtocol) {
-        self.view = view
+    override init(view: T) {
+        super.init(view: view)
+        super.child = self
     }
     
-    // Calling API USing Alamofire to retrive News Articles
-    internal func getNews() {
+    // Calling API USing Alamofire to retrieve News Articles
+    internal func getData() {
         view?.showLoadingView()
         APIManager.shared().getNews(page: page) { [weak self] (result: Result<BaseResponse<Article>, Error>) in
             guard let self = self else { return }
             switch result {
             case .success(let data):
-                self.articlesList.append(contentsOf: data.articles)
+                self.dataList.append(contentsOf: data.articles)
+                print(data.totalResults)
                 self.isHasMorePages(resultCount: data.totalResults)
                 self.page += 1
-                self.view?.updateData(on: self.articlesList)
+                self.view?.updateData(on: self.dataList as! [Article])
                 self.view?.dismissLoadingView()
             case .failure(let error):
                 self.view?.dismissLoadingView()
@@ -53,45 +45,41 @@ class NewsVM: NewsVMProtocol {
             }
         }
     }
-    
+
     internal func articlesFiltration(keyWords: String?){
         guard let filter = keyWords, filter.isEmpty == false else {
             filteredArticles.removeAll()
-            view?.updateData(on: articlesList)
+            view?.updateData(on: dataList as! [Article])
             isSearching = false
             return
         }
-        filteredArticles = articlesList.filter { $0.title.lowercased().contains(filter.lowercased()) }
+        filteredArticles = (dataList as! [Article]).filter  { $0.title.lowercased().contains(filter.lowercased()) }
         view?.updateData(on: filteredArticles)
         isSearching = true
     }
-    internal func getClickedArticle(in index: Int) -> Article {
-        return isSearching ? filteredArticles[index] : articlesList[index]
-    }
     
-    internal func getDataListCount() -> Int {
-        return articlesList.count
+    internal func getClickedArticle(in index: Int) -> Article {
+        return isSearching ? filteredArticles[index] : (dataList[index] as! Article)
     }
     
     internal func getCellData(indexPath: IndexPath) -> Article {
-        return articlesList[indexPath.row]
-    }
-    
-    internal func scrollObserve(cellCount: Int){
-        if didScrollToEnd(cellCount: cellCount) && hasMorePages {
-            self.getNews()
-        }
-    }
-    
-    private func didScrollToEnd(cellCount: Int) -> Bool {
-        return cellCount + 1  == articlesList.count ? true : false
-    }
-    
-    //To terminate how many pages will retrieve from the API
-    internal func isHasMorePages(resultCount: Int) {
-        var numberOfPages: Int
-        numberOfPages = (resultCount / 20)
-        (resultCount % 20) != 0 ? (numberOfPages += 1) : (numberOfPages = numberOfPages)
-        resultCount > page ? (hasMorePages = true) : (hasMorePages = false)
+        return dataList[indexPath.row] as! Article
     }
 }
+
+
+protocol ViewControllerWithReachabilityProtocol: AnyObject {
+    
+    func showNoConnection()
+    func hideNoConnection()
+}
+
+protocol ViewControllerWithPagination: AnyObject  {
+    
+}
+
+protocol newsViewControllerProtocol: ViewControllerWithReachabilityProtocol, ViewControllerWithPagination  {
+    
+}
+
+

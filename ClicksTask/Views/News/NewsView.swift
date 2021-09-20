@@ -15,7 +15,7 @@ class NewsView: UIView {
     var collectionView: UICollectionView!
     var searchController: UISearchController!
     
-    //Order is nedded in this function
+    //Order is needed in this function
     func setupView(vcReference: NewsVC) {
         self.VCReference = vcReference
         configureCollectionView()
